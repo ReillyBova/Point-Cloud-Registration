@@ -25,7 +25,10 @@ def load_xf(file_name):
         # Could do in one-liner, but this has error checking
         result = []
         for r in rows:
-            c = [float(v) for v in r.split(' ')]
+            c = []
+            for v in r.split(' '):
+                if (len(v) > 0):
+                    c.append(float(v))
             if (len(c) != 4):
                 print("Error: Invalid number of columns detected in {}".format(file_name))
                 c = [0, 0, 0, 0]

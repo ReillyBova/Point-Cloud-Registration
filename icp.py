@@ -45,12 +45,19 @@ if (not os.path.isfile(file1_xf)):
     M1 = np.identity(4)
 else:
     M1 = load_xf(file1_xf)
-if (not os.path.isfile(file2_xf)):
-    print("Warning: Could not find .xf file: " + file2_xf)
-    print("Defaulting to 4x4 identity matrix...")
-    M2 = np.identity(4)
+
+# NB need to load "output" file2.xf if avaliable or will overwrite previous work
+output_file2_xf = './output/' + file2_xf.split('/')[-1]
+if (not os.path.isfile(output_file2_xf)):
+    if (not os.path.isfile(file2_xf)):
+        print("Warning: Could not find .xf file: " + file2_xf)
+        print("Defaulting to 4x4 identity matrix...")
+        M2 = np.identity(4)
+    else:
+        M2 = load_xf(file2_xf)
 else:
-    M2 = load_xf(file2_xf)
+    print("Using the transformation {} as target".format(output_file2_xf))
+    M2 = load_xf(output_file2_xf)
 
 # Build a kdtree out of the points in file 2
 print("Building KdTree from {}...".format(file2))
@@ -120,7 +127,7 @@ while (ratio < 0.9999):
     else:
         new_mean = old_mean
 
-    print("Finished iteration #{} with improvement of {}%".format(count, 100.0 - ratio*100.0))
+    print("Finished iteration #{} with improvement of {:2.4%}".format(count, 1.0 - ratio))
 
 print("Terminated successfully with a sampled mean distance of {}".format(new_mean))
 
