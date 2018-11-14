@@ -3,8 +3,9 @@
 # Project: COS 526 A2 — Point Cloud Registration
 #
 # File:    utils.py
-# About:   Provides utility functions for reading .pts and .xf files
+# About:   Provides utility functions for reading and writing .pts and .xf files
 
+import os
 import numpy as np
 from .point import Point
 
@@ -49,3 +50,35 @@ def load_pts(file_name):
             result.append(Point(pData[0:3], pData[3:6]))
 
     return result
+
+# Writes the provided matrix M to the specified .xf file
+def write_xf(file_name, M):
+    # Make the directory if necessary
+    dir = os.path.dirname(file_name)
+    if (not os.path.exists(dir)):
+        os.makedirs(dir)
+
+    # Write to file
+    with open(file_name, "w") as f:
+        for row in M.A:
+            for val in row:
+                f.write(str(val))
+                f.write(' ')
+            f.write('\n')
+    return
+
+# Writes the provided list of points to the specified .pts file
+def write_pts(file_name, pts):
+    # Make the directory if necessary
+    dir = os.path.dirname(file_name)
+    if (not os.path.exists(dir)):
+        os.makedirs(dir)
+
+    # Write to file
+    with open(file_name, "w") as f:
+        for p in pts:
+            for val in (p.s + p.n):
+                f.write(str(val))
+                f.write(' ')
+            f.write('\n')
+    return
