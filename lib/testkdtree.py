@@ -5,8 +5,8 @@
 # File:    testkdtree.py
 # About:   A simple script that tests kdtree.py
 
-from kdtree import KdTree
-from point import Point
+from .kdtree import KdTree
+from .point import Point
 from random import random
 
 # Basic functionality test

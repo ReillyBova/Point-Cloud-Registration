@@ -6,7 +6,7 @@
 # About:   Implements an nD Box; adapted from COS 226's RectHV
 
 from math import *
-from point import Point
+from .point import Point
 
 # An nD axis-aligned box
 class Box:

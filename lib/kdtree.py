@@ -6,8 +6,8 @@
 # About:   Implements an kdtree of points
 
 from math import *
-from box import Box
-from point import Point
+from .box import Box
+from .point import Point
 
 # Node class to maintain data structure
 class Node:
