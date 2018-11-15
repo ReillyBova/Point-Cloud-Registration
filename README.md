@@ -45,6 +45,22 @@ This program contains fairly robust error handling, however, it has not been rig
 |:--------------:|:----------------:|
 | ![Before alignment](/results/bunny_before.jpg?raw=true) | ![After alignment](/results/bunny_after.jpg?raw=true) |
 
+To view the "before" results, run `$ ./pts_view ./bunny/*.pts`. To view the "after" results, run `$ ./pts_view ./output/*.pts`
+
+To generate the aligned bunny yourself, first remove the output folder and then run these commands:
+
+```
+python3 icp.py ./bunny/bun045.pts ./bunny/bun000.pts
+python3 icp.py ./bunny/bun090.pts ./bunny/bun045.pts
+python3 icp.py ./bunny/bun315.pts ./bunny/bun000.pts
+python3 icp.py ./bunny/bun270.pts ./bunny/bun315.pts
+python3 icp.py ./bunny/bun180.pts ./bunny/bun270.pts
+python3 icp.py ./bunny/chin.pts ./bunny/bun315.pts
+python3 icp.py ./bunny/ear_back.pts ./bunny/bun180.pts
+python3 icp.py ./bunny/top2.pts ./bunny/bun180.pts
+python3 icp.py ./bunny/top3.pts ./bunny/bun000.pts
+```
+
 ## Authors
 
 * **Reilly Bova** - [ReillyBova](https://github.com/ReillyBova)
