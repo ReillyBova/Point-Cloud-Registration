@@ -43,10 +43,7 @@ This program contains fairly robust error handling, however, it has not been rig
 
 |  Before | After | 
 |:--------------:|:----------------:|
-| ![Direct Cloning](/results/battleOfPrinceton_direct.png?raw=true) | ![Poisson Cloning](/results/battleOfPrinceton_poisson.png?raw=true) |
-| ![Direct Cloning](/results/fig3a_direct.png?raw=true) | ![Poisson Cloning](/results/fig3a_poisson.png?raw=true) |
-| ![Direct Cloning](/results/fig3b_direct.png?raw=true) | ![Poisson Cloning](/results/fig3b_poisson.png?raw=true) |
-| ![Direct Cloning](/results/fig4_direct.png?raw=true) | ![Poisson Cloning](/results/fig4_poisson.png?raw=true) |
+| ![Before alignment](/results/bunny_before.jpg?raw=true) | ![After alignment](/results/bunny_after.jpg?raw=true) |
 
 ## Authors
 
